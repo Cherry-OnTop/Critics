@@ -3,19 +3,12 @@ const mysql = require('mysql');
 const connection = require('../database/index.js');
 const port = 9003
 const app = express();
+const router = require('../router/router.js')
 
 app.use(express.static(__dirname + 'client'));
 
-app.get('/movies/:number', (req, res) => {
-    const movieId = req.params.number;
-    connection.query(`select * from reviews r inner join critics c on r.criticId = c.id where r.movieId = ${movieId}`, (err , results) => {
-        if (err) {
-            res.sendStatus(500);
-        } else {
-            res.send(results);
-        }
-    })
-})
+app.use('/', router);
+
 
 app.listen(port, (err) => {
     if(err) {
