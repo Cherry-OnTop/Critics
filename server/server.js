@@ -8,7 +8,7 @@ const path = require('path');
 
 app.use(express.static(path.join(__dirname, '../client/dist')));
 
-app.use('/', router);
+app.use('/movies', router);
 
 app.listen(port, (err) => {
     if(err) {
