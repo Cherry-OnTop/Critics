@@ -8,5 +8,5 @@ exports.getReviews = function (req, res) {
         } else {
             res.send(results);
         }
-    })
+    });
 };
