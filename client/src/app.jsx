@@ -1,6 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import axios from 'axios';
+import ReviewList from './reviewList.jsx';
 
 
 export default class App extends React.Component {
@@ -13,11 +14,11 @@ export default class App extends React.Component {
   }
 
   componentDidMount(){
-    this.getReviews()
+    this.getReviews(window.location.search.substring(1))
   }
 
   getReviews(number = 101) {
-   axios.get(`/movies/${number}`)
+    axios.get(`/movies/${number}`)
     .then((response) => {
       this.setState({reviews: response.data})
     })
@@ -29,10 +30,9 @@ export default class App extends React.Component {
   render() {
     return (
       <div>
-          <h2 class="panel-heading">Critic Reviews for Movie</h2>
-          {this.state.reviews.map(r => {
-            return <div>{r.movieId}</div>
-          })}
+          <h2 class="panel-heading" >CRITIC REVIEWS FOR MOVIE {window.location.search.substring(1)}</h2>
+
+          <ReviewList reviews={this.state.reviews} />
       </div>
     )
   }
