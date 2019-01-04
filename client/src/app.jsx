@@ -31,7 +31,7 @@ export default class App extends React.Component {
     return (
       <div>
         <h2 className="panel-heading">
-          CRITIC REVIEWS FOR MOVIE {window.location.search.substring(1)}
+          CRITIC REVIEWS FOR MOVIE {document.URL.substr(-3)}
         </h2>
 
         <ReviewList reviews={this.state.reviews} />
