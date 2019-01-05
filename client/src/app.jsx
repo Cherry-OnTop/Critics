@@ -19,7 +19,7 @@ export default class App extends React.Component {
 
   getReviews(number = 101) {
     axios
-      .get(`http://localhost:9003/movies/${number}`)
+      .get(`http://ec2-3-16-138-173.us-east-2.compute.amazonaws.com/movies/${number}`)
       .then(response => {
         this.setState({ reviews: response.data });
       })
