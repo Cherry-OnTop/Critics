@@ -8,7 +8,6 @@ const path = require("path");
 var compression = require('compression');
 
 app.use(compression());
-app.use(express.static(path.join(__dirname, "../client/dist")));
 app.use((req, res, next) => {
   res.header("Access-Control-Allow-Origin", "*");
   res.header(
@@ -17,7 +16,7 @@ app.use((req, res, next) => {
   );
   next();
 });
-
+app.use(express.static(path.join(__dirname, "../client/dist")));
 app.use("/movies", router);
 
 app.listen(port, err => {
