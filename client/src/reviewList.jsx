@@ -11,7 +11,7 @@ const ReviewList = ({ reviews }) => {
           return (
             <div className="review" key={i}>
               <div className="review-bubble">
-                <span>
+                <span className="tomato">
                   <img className="tomato" src="https://staticv2-4.rottentomatoes.com/static/images/icons/new-fresh.png" />
                 </span>
                 <p className="text">{review.text}</p>
@@ -31,7 +31,7 @@ const ReviewList = ({ reviews }) => {
           return (
             <div className="review" key={i}>
               <div className="review-bubble">
-                <span>
+                <span className="tomato">
                   <img className="tomato" src="https://staticv2-4.rottentomatoes.com/static/images/icons/new-fresh.png" />
                 </span>
                 <p className="text">{review.text}</p>
@@ -50,7 +50,7 @@ const ReviewList = ({ reviews }) => {
           return (
             <div className="review" key={i}>
               <div className="review-bubble">
-                <span>
+                <span className="tomato">
                   <img className="tomato" src="https://staticv2-4.rottentomatoes.com/static/images/icons/new-rotten.png" />
                 </span>
                 <p className="text">{review.text}</p>
@@ -69,7 +69,7 @@ const ReviewList = ({ reviews }) => {
           return (
             <div className="review" key={i}>
               <div className="review-bubble">
-                <span>
+                <span className="tomato">
                   <img className="tomato" src="https://staticv2-4.rottentomatoes.com/static/images/icons/new-rotten.png" />
                 </span>
                 <p className="text">{review.text}</p>
