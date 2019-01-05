@@ -119,6 +119,7 @@ img.tomato {
 div.review:nth-child(odd) {
     float: right;
   }
-  div.review:nth-child(even) {
-    float: left;
-  }
+div.review {
+    height: 300px;
+    width: 500px;
+}
