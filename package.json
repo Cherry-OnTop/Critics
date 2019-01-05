@@ -7,7 +7,8 @@
     "test": "jest",
     "start": "nodemon server/server.js",
     "build": "webpack -d --watch",
-    "dev": "concurrently \"npm start\" \"npm run build\" "
+    "dev": "concurrently \"npm start\" \"npm run build\" ",
+    "set-port": "sudo iptables -t nat -A PREROUTING -i eth0 -p tcp --dport 80 -j REDIRECT --to-port 9003"
   },
   "repository": {
     "type": "git",
@@ -28,6 +29,7 @@
     "nodemon": "^1.18.9",
     "path": "^0.12.7",
     "react": "^16.7.0",
+    "react-columns": "^1.2.0",
     "react-dom": "^16.7.0",
     "webpack": "^4.28.1",
     "webpack-cli": "^3.1.2",

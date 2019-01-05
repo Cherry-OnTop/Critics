@@ -3,6 +3,7 @@ import ReactDOM from "react-dom";
 import axios from "axios";
 import ReviewList from "./reviewList.jsx";
 
+
 export default class App extends React.Component {
   constructor(props) {
     super(props);
@@ -13,7 +14,7 @@ export default class App extends React.Component {
   }
 
   componentDidMount() {
-    this.getReviews(document.URL.substr(-3));
+    this.getReviews(window.location.search.substring(1));
   }
 
   getReviews(number = 101) {
@@ -31,10 +32,11 @@ export default class App extends React.Component {
     return (
       <div>
         <h2 className="panel-heading">
-          CRITIC REVIEWS FOR MOVIE {document.URL.substr(-3)}
+          CRITIC REVIEWS FOR MOVIE {window.location.search.substring(1)}
         </h2>
 
-        <ReviewList reviews={this.state.reviews} />
+        <ReviewList reviews={this.state.reviews}/>
+  
       </div>
     );
   }

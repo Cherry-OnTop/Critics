@@ -1,15 +1,18 @@
 import React from "react";
 
+
 const ReviewList = ({ reviews }) => {
-  return (
+  
+    return (
+
     <div>
-      {reviews.map(review => {
+      {reviews.map((review,i) => {
         if (review.topCritic === 1 && review.rating === 1) {
           return (
-            <div className="review">
+            <div className="review" key={i}>
               <div className="review-bubble">
-                <span className="tomato">
-                  <img src="https://staticv2-4.rottentomatoes.com/static/images/icons/new-fresh.png" />
+                <span>
+                  <img className="tomato" src="https://staticv2-4.rottentomatoes.com/static/images/icons/new-fresh.png" />
                 </span>
                 <p className="text">{review.text}</p>
                 <div className="date">{review.date} </div>
@@ -26,10 +29,10 @@ const ReviewList = ({ reviews }) => {
           );
         } else if (review.topCritic === 0 && review.rating === 1) {
           return (
-            <div className="review">
+            <div className="review" key={i}>
               <div className="review-bubble">
-                <span className="tomato">
-                  <img src="https://staticv2-4.rottentomatoes.com/static/images/icons/new-fresh.png" />
+                <span>
+                  <img className="tomato" src="https://staticv2-4.rottentomatoes.com/static/images/icons/new-fresh.png" />
                 </span>
                 <p className="text">{review.text}</p>
                 <div className="date">{review.date} </div>
@@ -45,10 +48,10 @@ const ReviewList = ({ reviews }) => {
           );
         } else if (review.topCritic === 0 && review.rating === 0) {
           return (
-            <div className="review">
+            <div className="review" key={i}>
               <div className="review-bubble">
-                <span className="tomato">
-                  <img src="https://staticv2-4.rottentomatoes.com/static/images/icons/new-rotten.png" />
+                <span>
+                  <img className="tomato" src="https://staticv2-4.rottentomatoes.com/static/images/icons/new-rotten.png" />
                 </span>
                 <p className="text">{review.text}</p>
                 <div className="date">{review.date} </div>
@@ -64,10 +67,10 @@ const ReviewList = ({ reviews }) => {
           );
         } else if (review.topCritic === 1 && review.rating === 0) {
           return (
-            <div className="review">
+            <div className="review" key={i}>
               <div className="review-bubble">
-                <span className="tomato">
-                  <img src="https://staticv2-4.rottentomatoes.com/static/images/icons/new-rotten.png" />
+                <span>
+                  <img className="tomato" src="https://staticv2-4.rottentomatoes.com/static/images/icons/new-rotten.png" />
                 </span>
                 <p className="text">{review.text}</p>
                 <div className="date">{review.date} </div>
@@ -87,7 +90,9 @@ const ReviewList = ({ reviews }) => {
         }
       })}
     </div>
+
   );
+  
 };
 
 export default ReviewList;
