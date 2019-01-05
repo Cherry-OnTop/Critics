@@ -117,9 +117,12 @@ img.tomato {
   padding: 15px
 }
 div.review:nth-child(odd) {
-    float: right;
+    float: right !important;
+  }
+div.review:nth-child(odd) {
+    float: left !important;
   }
 div.review {
     height: 300px;
-    width: 500px;
+    width: 346.5px;
 }
