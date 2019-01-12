@@ -1,2 +1,7 @@
+#Modules
 node_modules/
-/client/dist/bundle.js
+#Distributables
+client/dist/bundle.js
+#databaseData
+database/critics.json
+database/reviews.json

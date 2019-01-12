@@ -1,39 +1,40 @@
 var fs = require('fs');
 var connection = require('./index.js');
 
-function readFile(path, callback) { //change this to a stream
-    fs.readFile(path, 'utf8', function (err, data) {
-      if (err) {
-        callback(err, null);
-      } else {
-        var dataobj = JSON.parse(data);
-        callback(null, dataobj);
-      }
-    });
-}
+// function readFile(path, callback) { //change this to a stream
+//     fs.readFile(path, 'utf8', function (err, data) {
+//       if (err) {
+//         callback(err, null);
+//       } else {
+//         var dataobj = JSON.parse(data);
+//         callback(null, dataobj);
+//       }
+//     });
+// }
 
 function populateCritics() {
-    readFile('critics.json', (err, data) => {
-        if (err) {
-            console.log('There was an error collecting critics data: ', err);
-        } else {
-            var dataInArray = [];
-            for (let k = 0; k < data.length; k++) {
-                var aCritic = [];
-                for (let key in data[k]) {
-                    aCritic.push(data[k][key]);
-                }
-                dataInArray.push(aCritic);
-            }
-            connection.query("INSERT INTO critics (name, topCritic, publisher, picture) VALUES ?;", [dataInArray], (err, results)=>{
-                if (err) {
-                    console.log('There was an error querying the critics in the db: ', err);
-                } else {
-                    console.log(results);
-                }
-            })
-        }
-    });
+    // readFile('critics.json', (err, data) => {
+    //     if (err) {
+    //         console.log('There was an error collecting critics data: ', err);
+    //     } else {
+    //         var dataInArray = [];
+    //         for (let k = 0; k < data.length; k++) {
+    //             var aCritic = [];
+    //             for (let key in data[k]) {
+    //                 aCritic.push(data[k][key]);
+    //             }
+    //             dataInArray.push(aCritic);
+    //         }
+    //         connection.query("INSERT INTO critics (name, topCritic, publisher, picture) VALUES ?;", [dataInArray], (err, results)=>{
+    //             if (err) {
+    //                 console.log('There was an error querying the critics in the db: ', err);
+    //             } else {
+    //                 console.log(results);
+    //             }
+    //         })
+    //     }
+    // });
+    
 }
 populateCritics();
 
@@ -61,23 +62,23 @@ populateCritics();
 //         }
 //     });
 //  }
-    var dataInsertReviews = function(){
-        fs.readFile(__dirname+'/reviews.json','utf-8', (err, data)=> {
-            if(err) {
-                console.log('Error importing data', err)
-            } else {
-                var review = JSON.parse(data);
-                for (var i = 0; i < review.length; i++) {
-                    connection.query(`INSERT INTO \`reviews\` (criticId, text, rating, movieId, date) VALUES (?,?,?,?,?);`, [review[i].criticId, review[i].text, review[i].rating, review[i].movieId, review[i].date], function(err) {
-                        if(err) {
-                            console.log('Error saving to database', err)
-                        } else {
-                            console.log('Saved!')
-                        }
-                    })
-                }
-            }
-        });
-    }
+    // var dataInsertReviews = function(){
+    //     fs.readFile(__dirname+'/reviews.json','utf-8', (err, data)=> {
+    //         if(err) {
+    //             console.log('Error importing data', err)
+    //         } else {
+    //             var review = JSON.parse(data);
+    //             for (var i = 0; i < review.length; i++) {
+    //                 connection.query(`INSERT INTO \`reviews\` (criticId, text, rating, movieId, date) VALUES (?,?,?,?,?);`, [review[i].criticId, review[i].text, review[i].rating, review[i].movieId, review[i].date], function(err) {
+    //                     if(err) {
+    //                         console.log('Error saving to database', err)
+    //                     } else {
+    //                         console.log('Saved!')
+    //                     }
+    //                 })
+    //             }
+    //         }
+    //     });
+    // }
  //dataInsertCritics();
  //dataInsertReviews();
