@@ -1,6 +1,34 @@
 var fs = require('fs');
 var connection = require('./index.js');
 
+function populateCritics() {
+    connection.query(`LOAD DATA LOCAL INFILE 'oldCritics.csv' INTO TABLE critics FIELDS TERMINATED BY ',' (name,picture,topCritic,publisher);`, (err, results) => {
+        if (err) {
+            console.log('There was an error querying the critics in the db: ', err);
+        } else {
+            console.log(results);
+        }
+    });
+    // var stream = fs.createReadStream('critics.json');
+    // stream.on('finish', () => {
+    //     console.log('Finished handling data');
+    // });
+    // //var leftoverChunk = 
+    // stream.on('data', (chunk) => {
+    //     console.log(chunk.toString());
+    // });
+    // stream.on('error', (err) => {
+    //     console.log('Error in read-stream for critics: ', err);
+    // })
+
+}
+populateCritics();
+
+function populateReviews() {
+
+}
+//populateReviews();
+
 // function readFile(path, callback) { //change this to a stream
 //     fs.readFile(path, 'utf8', function (err, data) {
 //       if (err) {
@@ -12,7 +40,7 @@ var connection = require('./index.js');
 //     });
 // }
 
-function populateCritics() {
+// function populateCritics(typeOfDB) {
     // readFile('critics.json', (err, data) => {
     //     if (err) {
     //         console.log('There was an error collecting critics data: ', err);
@@ -27,16 +55,17 @@ function populateCritics() {
     //         }
     //         connection.query("INSERT INTO critics (name, topCritic, publisher, picture) VALUES ?;", [dataInArray], (err, results)=>{
     //             if (err) {
-    //                 console.log('There was an error querying the critics in the db: ', err);
+    //                 
     //             } else {
     //                 console.log(results);
     //             }
     //         })
     //     }
     // });
-    
-}
-populateCritics();
+    //load json into mysql
+    //if 'typeOfDB === '' ' { run script for this type } else { run script for other type }
+// }
+// populateCritics();
 
             // var batch = [];
             // var randomNumberOfReviews = Math.floor(Math.random() * 20) + 1;
