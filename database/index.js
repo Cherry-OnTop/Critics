@@ -3,7 +3,7 @@ var connection = mysql.createConnection({
   host: 'localhost',
   user     : 'root',
   password : process.env.PASS,
-  database : 'FEC'
+  database : 'FEC' //should be SDC but leaving it like this for now
 
 });
 
