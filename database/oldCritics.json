@@ -1,4 +1,5 @@
-[{"id":1,"name":"Fredelia Cradick","picture":"http://dummyimage.com/100x100.jpg/dddddd/000000","topCritic":0,"publisher":"Weimann, Kirlin and Hansen"},
+[
+{"id":1,"name":"Fredelia Cradick","picture":"http://dummyimage.com/100x100.jpg/dddddd/000000","topCritic":0,"publisher":"Weimann, Kirlin and Hansen"},
 {"id":2,"name":"Gaspard Faulkener","picture":"http://dummyimage.com/100x100.jpg/cc0000/ffffff","topCritic":0,"publisher":"Schultz Group"},
 {"id":3,"name":"Vevay Kringe","picture":"http://dummyimage.com/100x100.jpg/5fa2dd/ffffff","topCritic":1,"publisher":"Feeney Inc"},
 {"id":4,"name":"Barth Vercruysse","picture":"http://dummyimage.com/100x100.jpg/dddddd/000000","topCritic":1,"publisher":"Pagac-Murphy"},
@@ -97,4 +98,5 @@
 {"id":97,"name":"Benyamin Eldridge","picture":"http://dummyimage.com/100x100.jpg/dddddd/000000","topCritic":1,"publisher":"Jacobi and Sons"},
 {"id":98,"name":"Kristy Gerber","picture":"http://dummyimage.com/100x100.jpg/dddddd/000000","topCritic":0,"publisher":"Paucek and Sons"},
 {"id":99,"name":"Thorsten Maton","picture":"http://dummyimage.com/100x100.jpg/dddddd/000000","topCritic":1,"publisher":"O'Kon, Hermiston and Kris"},
-{"id":100,"name":"Meris Cominoli","picture":"http://dummyimage.com/100x100.jpg/cc0000/ffffff","topCritic":1,"publisher":"Schmeler, Kuphal and Abernathy"}]
+{"id":100,"name":"Meris Cominoli","picture":"http://dummyimage.com/100x100.jpg/cc0000/ffffff","topCritic":1,"publisher":"Schmeler, Kuphal and Abernathy"}
+]
