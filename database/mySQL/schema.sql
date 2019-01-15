@@ -8,10 +8,10 @@ DROP TABLE IF EXISTS `critics`;
 
 CREATE TABLE `critics` (
   `id` INTEGER NOT NULL AUTO_INCREMENT UNIQUE,
-  `name` VARCHAR(64) NULL DEFAULT NULL,
-  `topCritic` INTEGER NULL DEFAULT NULL,
-  `picture` VARCHAR(500) NULL DEFAULT NULL,
-  `publisher` VARCHAR(64) NULL DEFAULT NULL,
+  `name` VARCHAR(64),
+  `topCritic` TINYINT,
+  `picture` VARCHAR(500),
+  `publisher` VARCHAR(64),
   PRIMARY KEY (`id`)
 );
 
@@ -19,11 +19,11 @@ DROP TABLE IF EXISTS `reviews`;
 		
 CREATE TABLE `reviews` (
   `id` INTEGER NOT NULL AUTO_INCREMENT UNIQUE,
-  `criticId` INTEGER NULL DEFAULT NULL,
-  `text` VARCHAR(400) NULL DEFAULT NULL,
-  `rating` INTEGER NULL DEFAULT NULL,
-  `movieId` INTEGER(10) NULL DEFAULT NULL,
-  `date` VARCHAR(36) NULL DEFAULT NULL,
+  `criticId` INTEGER,
+  `text` VARCHAR(400),
+  `rating` TINYINT,
+  `movieId` INTEGER(10),
+  `date` VARCHAR(36),
   PRIMARY KEY (`id`)
 );
 

@@ -1,10 +1,9 @@
 var mysql = require("mysql");
 var connection = mysql.createConnection({
-  host: 'localhost',
-  user     : 'root',
+  host: 'localhost', // when deploying change this to a process.env
+  user     : 'root', // when deploying change this to a process.env
   password : process.env.PASS,
   database : 'FEC' //should be SDC but leaving it like this for now
-
 });
 
 connection.connect(err => {

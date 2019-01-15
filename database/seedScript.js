@@ -1,50 +1,72 @@
-var fs = require('fs');
-var connection = require('./index.js');
-
-function populateCritics(database) {
-    if (database === 'mySQL') {
-        connection.query(`LOAD DATA LOCAL INFILE 'critics.csv' INTO TABLE critics fields terminated BY "|" lines terminated BY "\n" IGNORE 1 LINES (name,topCritic,picture,publisher);`, (err, results) => {
+function populateCritics(dbms) {
+    if (dbms === 'mySQL') {
+        var mySQLConnection = require('./mySQL/index.js');
+        mySQLConnection.query(`SET bulk_insert_buffer_size = 1024 * 1024 * 1024;`, (err, results) => {
             if (err) {
-                console.log('There was an error querying the critics in the db: ', err);
-            } else {
-                console.log(results);
+                console.log('There was an error setting buffer size: ', err);
+                return;
             }
+            console.log('Results of setting buffer size: ', results);
+            mySQLConnection.query(`LOAD DATA LOCAL INFILE 'data/critics.csv' INTO TABLE critics fields terminated BY "|" lines terminated BY "\n" IGNORE 1 LINES (name,topCritic,picture,publisher);`, (err, results) => {
+                if (err) {
+                    console.log('There was an error querying the critics in the db: ', err);
+                } else {
+                    console.log('Results of uploading csv to mySQL: ', results);
+                }
+            });
         });
-    } else if (database === 'mongoDB') {
-
+    } else if (dbms === 'mongoDB') {
+        var exec = require('child_process').exec;
+        var mongoDBConnection = require('./mongo/index.js');
+        mongoDBConnection.connect(function(err) {
+            if(err) {
+                console.log('Error connecting to the db: ', err);
+                return;
+            }
+            exec('mongoimport -d sdc -c critics --type csv --headerline --file ./data/critics.csv', (err) => {
+                if(err) {`  `
+                    console.log('Error seeding data into mongodb: ', err);
+                }
+            });
+        });
     }
-    // var stream = fs.createReadStream('critics.json');
-    // stream.on('finish', () => {
-    //     console.log('Finished handling data');
-    // });
-    // //var leftoverChunk = 
-    // stream.on('data', (chunk) => {
-    //     console.log(chunk.toString());
-    // });
-    // stream.on('error', (err) => {
-    //     console.log('Error in read-stream for critics: ', err);
-    // })
 }
+
+function populateReviews(dbms) {
+    if (dbms === 'mySQL') {
+        var mySQLConnection = require('./mySQL/index.js');
+        mySQLConnection.query(`SET bulk_insert_buffer_size = 1024 * 1024 * 1024;`, (err, results) => {
+            if (err) {
+                console.log('Error setting buffer size for reviews query: ', err);
+                return;
+            }
+            console.log('Results of setting buffer size for reviews query: ', results);
+            mySQLConnection.query(`LOAD DATA LOCAL INFILE 'data/reviews.csv' INTO TABLE reviews fields terminated BY "|" lines terminated BY "\n" IGNORE 1 LINES (criticId,text,rating,movieId,date);`, (err, results) => {
+                if (err) {
+                    console.log('There was an error querying the critics in the db: ', err);
+                } else {
+                    console.log('Results of uploading reviews csv to mySQL: ', results);
+                }
+            });
+        });
+
+    } else if (dbms === 'mongoDB') {
+        var exec = require('child_process').exec;
+        var mongoDBConnection = require('./mongo/index.js');
+        mongoDBConnection.connect(function(err) {
+            if(err) {
+                console.log('Error connecting to the db: ', err);
+                return;
+            }
+            exec('mongoimport -d sdc -c reviews --type csv --headerline --file ./data/reviews.csv', (err) => {
+                if(err) {
+                    console.log('Error seeding data into mongodb: ', err);
+                }
+            });
+        });
+    }
+}
+
+//'mySQL' or 'mongoDB' for the dbms arugment
 //populateCritics('mySQL');
-
-function populateReviews() {
-    connection.query(`LOAD DATA LOCAL INFILE 'reviews.csv' INTO TABLE reviews fields terminated BY "|" lines terminated BY "\n" IGNORE 1 LINES (criticId,text,rating,movieId,date);`, (err, results) => {
-        if (err) {
-            console.log('There was an error querying the critics in the db: ', err);
-        } else {
-            console.log(results);
-        }
-    });
-}
 populateReviews('mySQL');
-
-// function readFile(path, callback) {
-//     fs.readFile(path, 'utf8', function (err, data) {
-//       if (err) {
-//         callback(err, null);
-//       } else {
-//         var dataobj = JSON.parse(data);
-//         callback(null, dataobj);
-//       }
-//     });
-// }
