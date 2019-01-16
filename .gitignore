@@ -3,7 +3,6 @@ node_modules/
 #Distributables
 client/dist/bundle.js
 #Generated Data
-database/critics.json
-database/reviews.json
-database/critics.csv
-database/reviews.csv
+database/data
+#Outdated Database
+database/mongo
