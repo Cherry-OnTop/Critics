@@ -1,4 +1,4 @@
-const connection = require("../database/index.js");
+const connection = require("../database/mySQL/index.js");
 
 exports.getReviews = function(req, res) {
   const movieId = req.params.number;

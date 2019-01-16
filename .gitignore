@@ -4,3 +4,5 @@ node_modules/
 client/dist/bundle.js
 #Generated Data
 database/data
+#Outdated Database
+database/mongo
