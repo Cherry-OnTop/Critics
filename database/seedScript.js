@@ -92,5 +92,5 @@ function populateReviews2(dbms) {
 
 //'mySQL' or 'mongoDB' for the dbms arugment
 //populateCritics('mySQL');
-//populateReviews1();
-populateReviews2();
+populateReviews1();
+//populateReviews2();

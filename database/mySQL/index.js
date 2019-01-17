@@ -1,11 +1,10 @@
 var mysql = require("mysql");
 var connection = mysql.createConnection({
   multipleStatements: true,
-  host: "18.221.65.191", // when deploying change this to a process.env
-  user: "root", // when deploying change this to a process.env
-  password: "hackPlease1",
-  database: "sdc", //should be SDC but leaving it like this for now
-  port: 3306
+  host: process.env.db_host, // when deploying change this to a process.env
+  user     : process.env.db_user, // when deploying change this to a process.env
+  password : process.env.db_pass,
+  database : process.env.db_name //should be SDC but leaving it like this for now
 });
 
 connection.connect(err => {
