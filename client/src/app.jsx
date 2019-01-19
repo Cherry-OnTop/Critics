@@ -18,6 +18,7 @@ export default class App extends React.Component {
   }
 
   getReviews(number = 101) {
+    console.log(number);
     axios
       .get(`http://ec2-3-16-200-137.us-east-2.compute.amazonaws.com/movies/${number}`) //ec2 microservice public ip
       .then(response => {
