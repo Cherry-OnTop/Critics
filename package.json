@@ -7,8 +7,8 @@
     "test": "jest",
     "start": "nodemon server/server.js",
     "build": "webpack -p --watch",
-    "dev": "concurrently \"npm start\" \"npm run build\" \"npm run set-port\"",
-    "set-port": "sudo iptables -t nat -A PREROUTING -i eth0 -p tcp --dport 80 -j REDIRECT --to-port 9003"
+    "set-port": "sudo iptables -t nat -A PREROUTING -i eth0 -p tcp --dport 80 -j REDIRECT --to-port 9003",
+    "dev": "npm-run-all --parallel start build set-port"
   },
   "repository": {
     "type": "git",
