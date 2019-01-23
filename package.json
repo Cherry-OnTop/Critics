@@ -5,8 +5,8 @@
   "main": "index.js",
   "scripts": {
     "test": "jest",
-    "start": "nodemon server/server.js",
-    "build": "webpack -p --watch",
+    "start": "node server/server.js",
+    "build": "webpack -p",
     "set-port": "sudo iptables -t nat -A PREROUTING -i eth0 -p tcp --dport 80 -j REDIRECT --to-port 9003",
     "dev": "concurrently \"npm start\" \"npm run build\""
   },
