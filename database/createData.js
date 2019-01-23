@@ -72,39 +72,37 @@ function generateReviews(path, fileType) {
     return date;
   }
   if (fileType === "csv") {
-    for (let i = 1; i < 3; i++) {
-      const filePath = fs.createWriteStream("./data/" + path + i + '.' + fileType);
+      const filePath = fs.createWriteStream("./data/" + path + '.' + fileType);
       filePath.on("finish", () => {
         console.log("Finished writing data");
       });
       filePath.write("criticId|text|rating|movieId|date\n", "utf8");
-      for (let k = 0; k < 50; k++) {
-        console.log("File " + path + i + " Percent Completed: " + k * 2 + "%");
-        var batch = "";
-        for (let i = 0; i < 200000; i++) {
-          //max size of string is 2^27 to be safe, therefore = 2^27 / maxBatchCharLen for least iterations
-          //iteresting to note that mdn doesnt tell us the max length of an obj property name, this is based on the browser engine
-          var newCritic =
-            Math.floor(Math.random() * 10000000) +
-            1 +
-            "|" +
-            faker.lorem.words(15) +
-            "|" +
-            Math.round(Math.random()) +
-            "|" +
-            Math.floor(Math.random() * 10000000 + 1) +
-            "|" +
-            randomDate();
-          if (k !== 49 || i !== 199999) {
-            batch += newCritic + "\n"; //is there any benefit to splitting by lines in csv?
-          } else {
-            batch += newCritic;
-          }
+    for (let k = 0; k < 5; k++) {
+      console.log("File " + path + " Percent Completed: " + k * 20 + "%");
+      var batch = "";
+      for (let i = 0; i < 200000; i++) {
+        //max size of string is 2^27 to be safe, therefore = 2^27 / maxBatchCharLen for least iterations
+        //iteresting to note that mdn doesnt tell us the max length of an obj property name, this is based on the browser engine
+        var newCritic =
+          Math.floor(Math.random() * 10000000) +
+          1 +
+          "|" +
+          faker.lorem.words(15) +
+          "|" +
+          Math.round(Math.random()) +
+          "|" +
+          Math.floor(Math.random() * 10000000 + 1) +
+          "|" +
+          randomDate();
+        if (k !== 5 || i !== 199999) {
+          batch += newCritic + "\n"; //is there any benefit to splitting by lines in csv?
+        } else {
+          batch += newCritic;
         }
-        filePath.write(batch, "utf8");
       }
-      filePath.end();
+      filePath.write(batch, "utf8");
     }
+    filePath.end();
   } else if (fileType === "json") {
     const filePath = fs.createWriteStream("./data/" + path);
     filePath.on("finish", () => {

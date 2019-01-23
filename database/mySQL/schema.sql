@@ -28,4 +28,6 @@ CREATE TABLE `reviews` (
 );
 
 ALTER TABLE `reviews` ADD FOREIGN KEY (criticId) REFERENCES `critics` (`id`);
-ALTER TABLE `reviews` ADD INDEX `movieId` (`movieId`);
+ALTER TABLE `reviews` ADD INDEX `movieId` (`movieId`); 
+-- should do this after theyre already inserted!
+
