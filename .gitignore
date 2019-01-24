@@ -2,6 +2,7 @@
 node_modules/
 #Distributables
 client/dist/bundle.js
+client/dist/serverBundle.js
 #Generated Data
 database/data
 #Outdated Database

@@ -8,8 +8,7 @@ export default class App extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      reviews: [],
-      type: ""
+      reviews: []
     };
   }
 
@@ -18,9 +17,8 @@ export default class App extends React.Component {
   }
 
   getReviews(number = 101) {
-    console.log(number);
     axios
-      .get(`http://ec2-3-16-200-137.us-east-2.compute.amazonaws.com/movies/${number}`) //ec2 microservice public ip
+      .get(`http://3.16.200.137/movies/${number}`) //ec2 microservice public ip
       .then(response => {
         this.setState({ reviews: response.data });
       })
@@ -44,3 +42,4 @@ export default class App extends React.Component {
 }
 
 ReactDOM.render(<App />, document.getElementById("critics"));
+//window.Critic = App;
