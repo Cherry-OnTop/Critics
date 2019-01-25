@@ -18,5 +18,4 @@ COPY . .
 
 EXPOSE 9003
 
-CMD ["npm", "run", "set-port"]
-CMD [ "npm", "run", "dev" ]
+CMD [ "npm", "run", "start" ]
