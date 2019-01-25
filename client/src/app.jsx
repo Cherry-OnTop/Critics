@@ -18,7 +18,7 @@ export default class App extends React.Component {
 
   getReviews(number = 101) {
     axios
-      .get(`http://3.16.200.137/movies/${number}`) //ec2 microservice public ip
+      .get(`/movies/${number}`) //ec2 microservice public ip
       .then(response => {
         this.setState({ reviews: response.data });
       })
