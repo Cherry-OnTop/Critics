@@ -19,7 +19,7 @@ app.use((req, res, next) => {
   next();
 });
 app.use(express.static(path.join(__dirname, "../client/dist")));
-app.use("/movies", router);
+app.use("/critics", router);
 app.use(morgan('dev'));
 
 app.listen(port, err => {
