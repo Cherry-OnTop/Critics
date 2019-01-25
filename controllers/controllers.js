@@ -8,6 +8,7 @@ exports.getReviews = function(req, res) {
       if (err) {
         res.sendStatus(500);
       } else {
+        //console.log(results);
         res.send(results);
       }
     }
