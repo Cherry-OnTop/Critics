@@ -10,7 +10,7 @@ exports.getReviews = function(req, res) {
     if (err) {
       console.log('Error checking redis cache: ', err);
     } else if (data) {
-      console.log('Data in cache was found!: ', data);
+      console.log('Data in cache was found!');
       data = JSON.parse(data);
       res.send(data);
     } else if (!data) {
