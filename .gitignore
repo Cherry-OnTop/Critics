@@ -7,3 +7,7 @@ client/dist/serverBundle.js
 database/data
 #Outdated Database
 database/mongo
+#newrelic logs
+newrelic_agent.log
+#package-lock
+package-lock.json
