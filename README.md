@@ -1,4 +1,4 @@
-# Local Market Website
+# Critics Component
 
 This is the critics component for the Spotted Potatoes Movie Review Site.
 
@@ -27,6 +27,7 @@ The default connection to the server uses localhost at port 9003.
 In the directory of the repo:
 
 ```
+set environment variable newrelic="newrelic key"
 npm install
 npm run build
 npm run set-port (only works for linux machines to forward the default port 80 to direct to port 9003)
