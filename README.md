@@ -66,7 +66,8 @@ Tests are run using jest. Currently under work, testing will be added soon.
 * Node
 * React
 * React-DOM
-* mongodb
+* React-Columns
+* MySQL
 * Axios
 * Express
 * Webpack
@@ -74,24 +75,29 @@ Tests are run using jest. Currently under work, testing will be added soon.
 * Jest
 * Babel
 * Webpack
-* Valdiator
-* Google-Maps-React
 * PM2
 * Body-parser
 * Morgan
 * Compression
+* Docker
+* NewRelic
+* Artillery
+* AWS
+* Faker
+* Html-Webpack-Plugin
 
 ## Version-History
 
-* 0.1
-    * Skeleton Code for build.
-    * See [commit change](https://github.com/jonathan-raitses/localmarket/commit/b2fbe29bff0a3888cf2fd092d1d68a0b062fb86a)
+* 1.0
+    * Legacy code base from [Cbenz88](https://github.com/Cbenz88)
+    * See [commit change](https://github.com/Cherry-OnTop/Critics/commit/b3995c2f4b6dac6014d4b1c385dbf2e91f0fd850)
 
 ## Authors
 
 * **Jonathan Raitses** - [Jonathan-Raitses](https://github.com/jonathan-raitses)
+* **Charlie Bencivenga** [Cbenz88](https://github.com/Cbenz88)
 
-See also the list of [contributors](https://github.com/jonathan-raitses/localmarket/graphs/contributors) who participated in this project.
+See also the list of [contributors](https://github.com/Cherry-OnTop/Critics/graphs/contributors) who participated in this project.
 
 
 ## License
