@@ -1,87 +1,98 @@
-# Diddit
+# Local Market Website
 
-This project is modeled after the popular forum platform site 'Reddit'. This service permits users to utilize a clean web app to communicate with others who have similar interests.
+This is the critics component for the Spotted Potatoes Movie Review Site.
 
-## Getting Started
+## Table Of Contents
+
+* [Getting Started](#Getting-Started)
+* [Installing](#Installing)
+* [Deployment](#Deployment)
+* [Running the Tests](#Running-the-tests)
+  * [Breakdown](#Breakdown)
+* [Technologies](#Technologies)
+* [Version History](#Version-History)
+* [Authors](#Authors)
+* [License](#License)
+
+<!-- toc -->
+
+## Getting-Started
 
 These instructions will get you a copy of the project up and running on your local machine for development and testing purposes. See deployment for notes on how to deploy the project on a live system.
 
-### Prerequisites
+## Installing
 
-What things you need to install the software and how to install them
-
-```
-Give examples
-```
-
-### Installing
-
-A step by step series of examples that tell you how to get a development env running
-
-Say what the step will be
+Make sure the machine you are running the server on has node installed.
+The default connection to the server uses localhost at port 9003.
+In the directory of the repo:
 
 ```
-Give the example
-```
-
-And repeat
-
-```
-until finished
-```
-
-End with an example of getting some data out of the system or using it for a little demo
-
-## Running the tests
-
-Explain how to run the automated tests for this system
-
-### Break down into end to end tests
-
-Explain what these tests test and why
-
-```
-Give an example
-```
-
-### And coding style tests
-
-Explain what these tests test and why
-
-```
-Give an example
+npm install
+npm run build
+npm run set-port (only works for linux machines to forward the default port 80 to direct to port 9003)
+npm run start (uses PM2 and can be stopped with 'npm run stop')
 ```
 
 ## Deployment
 
-Add additional notes about how to deploy this on a live system
+Performance will increase if you host your database on at least one seperate machine.
+Make sure your RDS has mongodb installed.
+The default connection to the database uses the root user as well as no password at the localhost:27017.
+You may manipulate these variables by adding the following environment variables:
 
-## Built With
+```
+RDS_HOST="databaseUrl"
+RDS_USER="databaseUser"
+RDS_PASSWORD="databasePassword"
+RDS_PORT="databasePort"
+```
 
-* [Dropwizard](http://www.dropwizard.io/1.0.2/docs/) - The web framework used
-* [Maven](https://maven.apache.org/) - Dependency Management
-* [ROME](https://rometools.github.io/rome/) - Used to generate RSS Feeds
+Substitute "databaseURL" for the database url, "databaseUser" for the user, and so on to avoid default values.
 
-## Contributing
+## Running-the-tests
 
-Please read [CONTRIBUTING.md](https://gist.github.com/PurpleBooth/b24679402957c63ec426) for details on our code of conduct, and the process for submitting pull requests to us.
+To run the jest tests use 'npm run test' which are located in the test folder.
 
-## Versioning
+### Breakdown
 
-We use [SemVer](http://semver.org/) for versioning. For the versions available, see the [tags on this repository](https://github.com/your/project/tags). 
+```
+'npm run test'
+Tests are run using jest. Currently under work, testing will be added soon.
+```
+
+## Technologies
+
+* Node
+* React
+* React-DOM
+* mongodb
+* Axios
+* Express
+* Webpack
+* Path
+* Jest
+* Babel
+* Webpack
+* Valdiator
+* Google-Maps-React
+* PM2
+* Body-parser
+* Morgan
+* Compression
+
+## Version-History
+
+* 0.1
+    * Skeleton Code for build.
+    * See [commit change](https://github.com/jonathan-raitses/localmarket/commit/b2fbe29bff0a3888cf2fd092d1d68a0b062fb86a)
 
 ## Authors
 
-* **Billie Thompson** - *Initial work* - [PurpleBooth](https://github.com/PurpleBooth)
+* **Jonathan Raitses** - [Jonathan-Raitses](https://github.com/jonathan-raitses)
 
-See also the list of [contributors](https://github.com/your/project/contributors) who participated in this project.
+See also the list of [contributors](https://github.com/jonathan-raitses/localmarket/graphs/contributors) who participated in this project.
+
 
 ## License
 
-This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md) file for details
-
-## Acknowledgments
-
-* Hat tip to anyone whose code was used
-* Inspiration
-* etc
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details
