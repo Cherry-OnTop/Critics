@@ -116,7 +116,7 @@ Tests are run using jest. Currently under work, testing will be added soon.
 ## Authors
 
 * **Jonathan Raitses** - [Jonathan-Raitses](https://github.com/jonathan-raitses)
-* **Charlie Bencivenga** [Cbenz88](https://github.com/Cbenz88)
+* **Charlie Bencivenga** - [Cbenz88](https://github.com/Cbenz88)
 
 See also the list of [contributors](https://github.com/Cherry-OnTop/Critics/graphs/contributors) who participated in this project.
 
