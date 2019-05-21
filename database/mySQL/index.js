@@ -1,10 +1,10 @@
 var mysql = require("mysql");
 var connection = mysql.createConnection({
   multipleStatements: true,
-  host: process.env.db_host, 
-  user: process.env.db_user, 
-  password: process.env.db_pass,
-  database: process.env.db_name
+  host: process.env.DB_HOST, 
+  user: process.env.DB_USER, 
+  password: process.env.DB_PASS,
+  database: process.env.DB_NAME
 });
 
 connection.connect(err => {
