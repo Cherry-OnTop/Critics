@@ -1,8 +1,7 @@
 import React from "react";
 
-
+// optimize by changing the if statement with a lookup to an object instead for constant time lookup.
 const ReviewList = ({ reviews }) => {
-  
     return (
 
     <div>
